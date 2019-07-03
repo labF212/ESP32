@@ -14,8 +14,8 @@ uint8_t temprature_sens_read();
 int analog_value = 0;
 
 
-char ssid[] = "EACI"; // your network SSID (name)
-char pass[] = "SMD@EACI"; // your network password
+char ssid[] = "SSID"; // your network SSID (name)
+char pass[] = "password"; // your network password
 int keyIndex = 0; // your network key Index number (needed only for WEP)
 WiFiClient client;
  
