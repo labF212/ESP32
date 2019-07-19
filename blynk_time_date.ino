@@ -50,14 +50,12 @@ BlynkTimer timer;
 void sendSensor()
 {
   
-  analog_value = analogRead(ANALOG_PIN_0);     // Armazena os valores de leitura do sensor de luz
- 
-  
-  Blynk.virtualWrite(V1, LED_PIN);
+  analog_value = analogRead(ANALOG_PIN_0);     // Armazena os valores de leitura do sensor de lu
+   
+  Blynk.virtualWrite(V1, LED_PIN);	       //No widget botão colocar no output GP2
   Blynk.virtualWrite(V2, analog_value);      // Valor de LDR porta virtual V2
-  Blynk.virtualWrite(V3, timeStamp);
-  Blynk.virtualWrite(V4, dayStamp);
-  
+  Blynk.virtualWrite(V3, timeStamp);	      // Colocação da hora na 1a linha do widget LCD 
+  Blynk.virtualWrite(V4, dayStamp);	      // Colocação do dia na 2a linha do widget LCD
 
 }
 
