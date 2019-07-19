@@ -12,11 +12,11 @@ const char* password = "YOUR PASSWORD";
 // https://github.com/taranais/NTPClient instalar esta biblioteca
 // fazendo desta forma https://www.robocore.net/tutoriais/adicionando-bibliotecas-na-ide-arduino.html 
 
-const char* ssid     = "EACI";
-const char* password = "SMD@EACI";
+const char* ssid     = "NOME_REDE"; //ver estas passwords no documento de texto
+const char* password = "PASSWORD";
 
 //-------- Token de Autenticação -----------
-char auth[] = " vSW44z6xNbpmkVa6y2jO7o58IB2dxzIi"; // Coloque aqui o código de Token
+char auth[] = "Token_Blynk"; // Coloque aqui o código de Token
 
 WiFiServer server(80);
 
