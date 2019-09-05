@@ -65,23 +65,36 @@ const char index_html[] PROGMEM = R"rawliteral(
  
   <div style="background-color:lightblue"><center>
   <h1>Jogo do Galo</h1>
-    <table><tr>
+    <table>
+      <tr><td>
       <form action="/get">
       <!--input4:<input type="submit" value="Submit">-->
       <!--input4: <input type="text" name="input4">-->
-      <input type="submit" name="input4" value="Posição 1" />
-      </emsp> <!--4 spaces-->
-      </form>
+      <input type="submit" name="input4" value="Posição 1" />             
+      </form></td>
+      <td>
+      </&emsp> <!--4 spaces-->
+      </td>
+      <td>
       <form action="/get">
       <input type="submit" name="input5" value="Posição 2" />
+      </td>
       </form>
-    </tr></table>
-    <table><tr>
+      
+      </tr>
+      </table>
+      <table>
+      <tr><td>
       <form action="/get">
       <input type="submit" name="input6" value="Posição 3" />
-      </form>
+      </form></td>
+      <td>
+      </&emsp> <!--4 spaces-->
+      </td>
+      <td>
       <form action="/get">
-      <input type="submit" name="input7" value="Posição 4" />        
+      <input type="submit" name="input7" value="Posição 4" />
+      </td>        
     </tr></table>
     </br>
   </div>
