@@ -69,7 +69,8 @@ const char index_html[] PROGMEM = R"rawliteral(
       <form action="/get">
       <!--input4:<input type="submit" value="Submit">-->
       <!--input4: <input type="text" name="input4">-->
-      <input type="submit" name="input4" value="Posição 1" />             
+      <input type="submit" name="input4" value="Posição 1" />
+      </emsp> <!--4 spaces-->
       </form>
       <form action="/get">
       <input type="submit" name="input5" value="Posição 2" />
