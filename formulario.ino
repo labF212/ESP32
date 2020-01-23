@@ -1,14 +1,3 @@
-/*********
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com/esp32-esp8266-input-data-html-form/
-  
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files.
-  
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-*********/
-
 #include <Arduino.h>
 #ifdef ESP32
   #include <WiFi.h>
@@ -61,7 +50,7 @@ const char index_html[] PROGMEM = R"rawliteral(
   
   <h1>Palavra a enviar ao Robô</h1>
   <form action="/get">
-    Escreva a palavra (apenas com 4 caracteres): <input type="text" name="input1"> 
+    Escreva a palavra (apenas com 10 caracteres): <input type="text" name="input1"> 
     <input type="submit" value="Enviar">
   </form><br>
  
@@ -202,7 +191,7 @@ void setup() {
       Serial.println(inputMessage);
       
       //palavra+ = inputParam;
-      for (int i = 0; i < 5; i++) {
+      for (int i = 0; i < 10; i++) {
       //Serial.println(palavra[i]);
       
       char letra = inputMessage[i];
@@ -215,7 +204,7 @@ void setup() {
         digitalWrite(LED_PIN3, HIGH);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, HIGH);
-        delay(1000);
+        delay(400);
         }
 
       if(letra == 'b'){
@@ -224,7 +213,7 @@ void setup() {
         digitalWrite(LED_PIN3, HIGH);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, HIGH); 
-        delay(1000);
+        delay(400);
         } 
 
       if(letra == 'c'){
@@ -233,7 +222,7 @@ void setup() {
         digitalWrite(LED_PIN3, HIGH);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, HIGH);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'd'){
@@ -242,7 +231,7 @@ void setup() {
         digitalWrite(LED_PIN3, LOW);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, HIGH);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'e'){
@@ -251,7 +240,7 @@ void setup() {
         digitalWrite(LED_PIN3, LOW);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, HIGH);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'f'){
@@ -260,7 +249,7 @@ void setup() {
         digitalWrite(LED_PIN3, LOW);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, HIGH);
-        delay(1000);    
+        delay(400);    
         }
       
       if(letra == 'g'){
@@ -269,7 +258,7 @@ void setup() {
         digitalWrite(LED_PIN3, LOW);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, HIGH);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'h'){
@@ -278,7 +267,7 @@ void setup() {
         digitalWrite(LED_PIN3, HIGH);
         digitalWrite(LED_PIN4, LOW);
         digitalWrite(LED_PIN5, HIGH);
-        delay(1000);
+        delay(400);
         }
     
       if(letra == 'i'){
@@ -287,7 +276,7 @@ void setup() {
         digitalWrite(LED_PIN3, HIGH);
         digitalWrite(LED_PIN4, LOW);
         digitalWrite(LED_PIN5, HIGH);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'j'){
@@ -296,7 +285,7 @@ void setup() {
         digitalWrite(LED_PIN3, HIGH);
         digitalWrite(LED_PIN4, LOW);
         digitalWrite(LED_PIN5, HIGH);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'k'){
@@ -305,7 +294,7 @@ void setup() {
         digitalWrite(LED_PIN3, HIGH);
         digitalWrite(LED_PIN4, LOW);
         digitalWrite(LED_PIN5, HIGH);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'l'){
@@ -314,7 +303,7 @@ void setup() {
         digitalWrite(LED_PIN3, LOW);
         digitalWrite(LED_PIN4, LOW);
         digitalWrite(LED_PIN5, HIGH);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'm'){
@@ -323,7 +312,7 @@ void setup() {
         digitalWrite(LED_PIN3, LOW);
         digitalWrite(LED_PIN4, LOW);
         digitalWrite(LED_PIN5, HIGH);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'n'){
@@ -332,7 +321,7 @@ void setup() {
         digitalWrite(LED_PIN3, LOW);
         digitalWrite(LED_PIN4, LOW);
         digitalWrite(LED_PIN5, HIGH);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'o'){
@@ -341,7 +330,7 @@ void setup() {
         digitalWrite(LED_PIN3, LOW);
         digitalWrite(LED_PIN4, LOW);
         digitalWrite(LED_PIN5, HIGH);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'p'){
@@ -350,7 +339,7 @@ void setup() {
         digitalWrite(LED_PIN3, HIGH);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, LOW);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'q'){
@@ -359,7 +348,7 @@ void setup() {
         digitalWrite(LED_PIN3, HIGH);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, LOW);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'r'){
@@ -368,7 +357,7 @@ void setup() {
         digitalWrite(LED_PIN3, HIGH);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, LOW);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 's'){
@@ -377,7 +366,7 @@ void setup() {
         digitalWrite(LED_PIN3, HIGH);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, LOW);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 't'){
@@ -386,7 +375,7 @@ void setup() {
         digitalWrite(LED_PIN3, LOW);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, LOW);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'u'){
@@ -395,7 +384,7 @@ void setup() {
         digitalWrite(LED_PIN3, LOW);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, LOW);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'v'){
@@ -404,7 +393,7 @@ void setup() {
         digitalWrite(LED_PIN3, LOW);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, LOW);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'x'){
@@ -413,7 +402,7 @@ void setup() {
         digitalWrite(LED_PIN3, LOW);
         digitalWrite(LED_PIN4, HIGH);
         digitalWrite(LED_PIN5, LOW);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'y'){
@@ -422,7 +411,7 @@ void setup() {
         digitalWrite(LED_PIN3, HIGH);
         digitalWrite(LED_PIN4, LOW);
         digitalWrite(LED_PIN5, LOW);
-        delay(1000);
+        delay(400);
         }
       
       if(letra == 'z'){
@@ -431,7 +420,7 @@ void setup() {
         digitalWrite(LED_PIN3, HIGH);
         digitalWrite(LED_PIN4, LOW);
         digitalWrite(LED_PIN5, LOW);
-        delay(1000);
+        delay(400);
         }
 
     }    
