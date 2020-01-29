@@ -1,5 +1,6 @@
 //http://onlineshouter.com/use-esp8266-wifi-modes-station-access-point/
 //https://RandomNerdTutorials.com/esp32-esp8266-input-data-html-form/
+//https://github.com/me-no-dev/ESPAsyncWebServer#redirect-to-another-url
 #include <Arduino.h>
 #ifdef ESP32
   #include <WiFi.h>
@@ -516,11 +517,14 @@ delay(10);
     }
     //Verificar o envio da mensagem na porta série
     Serial.println(inputMessage);
+    
     //Página que abre quando se carrega num botão
-    request->send(200, "text/html", "HTTP GET request sent to your ESP on input field (" 
+    //to local url
+    request->redirect("/");
+   /* request->send(200, "text/html", "HTTP GET request sent to your ESP on input field (" 
                                      + inputParam + ") with value: " + inputMessage +
                                      "<br><a href=\"/\">Return to Home Page</a>");
-                                                                                                                                                                                                                                                 
+     */                                                                                                                                                                                                                                            
   });                                            
   server.onNotFound(notFound);
   server.begin();
