@@ -47,7 +47,8 @@ AsyncWebServer server(80);
 unsigned long previousMillis = 0;    // will store last time DHT was updated
 
 // Updates DHT readings every 10 seconds
-const long interval = 10000;  
+//const long interval = 10000;  
+const long interval = 2000;  
 
 const char index_html[] PROGMEM = R"rawliteral(
 <!DOCTYPE HTML><html>
@@ -106,8 +107,7 @@ setInterval(function ( ) {
   };
   xhttp.open("GET", "/temperature", true);
   xhttp.send();
-}, 10000 ) ;
-
+}, 1000 ) ;
 setInterval(function ( ) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -117,8 +117,7 @@ setInterval(function ( ) {
   };
   xhttp.open("GET", "/humidity", true);
   xhttp.send();
-}, 10000 ) ;
-
+}, 1000 ) ;
 setInterval(function ( ) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -128,8 +127,7 @@ setInterval(function ( ) {
   };
   xhttp.open("GET", "/timeStamp", true);
   xhttp.send();
-}, 10000 ) ;
-
+}, 1000 ) ;
 setInterval(function ( ) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -139,8 +137,7 @@ setInterval(function ( ) {
   };
   xhttp.open("GET", "/dayStamp", true);
   xhttp.send();
-}, 10000 ) ;
-
+}, 1000 ) ;
 </script>
 </html>)rawliteral";
 
@@ -184,7 +181,36 @@ void data_hora() {
   //delay(2000);
 }
 
-
+void temp_hum(){
+unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis >= interval) {
+    // save the last time you updated the DHT values
+    previousMillis = currentMillis;
+    // Read temperature as Celsius (the default)
+    float newT = dht.readTemperature();
+    // Read temperature as Fahrenheit (isFahrenheit = true)
+    //float newT = dht.readTemperature(true);
+    // if temperature read failed, don't change t value
+    if (isnan(newT)) {
+      Serial.println("Failed to read from DHT sensor!");
+    }
+    else {
+      t = newT;
+      Serial.println(t);
+    }
+    // Read Humidity
+    float newH = dht.readHumidity();
+    // if humidity read failed, don't change h value 
+    if (isnan(newH)) {
+      Serial.println("Failed to read from DHT sensor!");
+    }
+    else {
+      h = newH;
+      Serial.println(h);
+    }
+  }
+  
+}
 
 void setup(){
   // Serial port for debugging purposes
@@ -229,39 +255,16 @@ void setup(){
   // GMT +8 = 28800
   // GMT -1 = -3600
   // GMT 0 = 0
-  timeClient.setTimeOffset(3600);
+  //timeClient.setTimeOffset(3600);
+  timeClient.setTimeOffset(00);
 }
 
  
 void loop(){  
-  unsigned long currentMillis = millis();
+  
 
   data_hora();
-  if (currentMillis - previousMillis >= interval) {
-    // save the last time you updated the DHT values
-    previousMillis = currentMillis;
-    // Read temperature as Celsius (the default)
-    float newT = dht.readTemperature();
-    // Read temperature as Fahrenheit (isFahrenheit = true)
-    //float newT = dht.readTemperature(true);
-    // if temperature read failed, don't change t value
-    if (isnan(newT)) {
-      Serial.println("Failed to read from DHT sensor!");
-    }
-    else {
-      t = newT;
-      Serial.println(t);
-    }
-    // Read Humidity
-    float newH = dht.readHumidity();
-    // if humidity read failed, don't change h value 
-    if (isnan(newH)) {
-      Serial.println("Failed to read from DHT sensor!");
-    }
-    else {
-      h = newH;
-      Serial.println(h);
-    }
-  }
-  delay(1000);
+  temp_hum();
+  
+  //delay(1000);
 }
